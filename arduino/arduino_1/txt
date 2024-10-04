@@ -1,0 +1,52 @@
+unsigned long previousMillis = 0;  // 이전에 센서를 읽은 시간 저장
+const long sensorInterval = 10000; // 10초 간격으로 센서 값을 읽음 (10000ms)
+
+// 센서값 읽기 함수
+void ReadSensorValue() {
+  // 현재 시간 저장
+  unsigned long currentMillis = millis();
+
+  // sensorInterval 시간이 지났을 때만 센서값을 읽음
+  if (currentMillis - previousMillis >= sensorInterval) {
+    previousMillis = currentMillis;  // 시간을 현재 시간으로 갱신
+
+    // 센서값 읽기
+    float temperature = dht.readTemperature();
+    float humidity = dht.readHumidity();
+    int lightLevel = analogRead(lightSensorPin);
+    int lightPercent = map(lightLevel, 1000, 0, 0, 100);
+    int soilMoistureLevel = analogRead(soilMoisturePin);
+
+    // 센서값 출력
+    Serial.println(temperature);
+    Serial.println(humidity);
+    Serial.println(lightLevel);
+    Serial.println(soilMoistureLevel);
+  }
+}
+
+// 제어 장치 함수 (지속적으로 체크)
+void ControlUnit() {
+  if (Serial.available() > 0) {
+    char command = Serial.read();
+
+    if (command == '0') {
+      digitalWrite(motorPinA, HIGH);  // 모터 켜기
+    } else if (command == '1') {
+      digitalWrite(motorPinA, LOW);   // 모터 끄기
+    } else if (command == '2') {
+      digitalWrite(ledPinR, 255);
+      digitalWrite(ledPinG, 255);
+      digitalWrite(ledPinB, 255);    // LED 켜기
+    } else if (command == '3') {
+      digitalWrite(ledPinR, 0);
+      digitalWrite(ledPinG, 0);
+      digitalWrite(ledPinB, 0);      // LED 끄기
+    }
+  }
+}
+
+void loop() {
+  ReadSensorValue();  // 센서값 읽기 (10초마다)
+  ControlUnit();      // 제어 장치는 지속적으로 작동
+}

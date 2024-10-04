@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Pump and LED Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #status {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Water Pump and LED Control</h1>
+    
+    <!-- Pump Control Buttons -->
+    <button id="pumpOn">Turn Pump ON</button>
+    <button id="pumpOff">Turn Pump OFF</button>
+    
+    <!-- LED Control Buttons -->
+    <button id="ledOn">Turn LED ON</button>
+    <button id="ledOff">Turn LED OFF</button>
+    
+    <!-- Status Message -->
+    <div id="status">Pump and LED status: Unknown</div>
+
+    <script>
+        // Pump ON
+        document.getElementById('pumpOn').addEventListener('click', () => {
+            fetch('http://127.0.0.1:3000/act', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ action: 'pumpOn' }) // 'pumpOn' 명령 전송
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').innerText = data.message; // 서버 응답 메시지 출력
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('status').innerText = 'Failed to turn on the pump';
+            });
+        });
+
+        // Pump OFF
+        document.getElementById('pumpOff').addEventListener('click', () => {
+            fetch('http://127.0.0.1:3000/act', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ action: 'pumpOff' }) // 'pumpOff' 명령 전송
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').innerText = data.message; // 서버 응답 메시지 출력
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('status').innerText = 'Failed to turn off the pump';
+            });
+        });
+
+        // LED ON
+        document.getElementById('ledOn').addEventListener('click', () => {
+            fetch('http://127.0.0.1:3000/act', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ action: 'ledOn' }) // 'ledOn' 명령 전송
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').innerText = data.message; // 서버 응답 메시지 출력
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('status').innerText = 'Failed to turn on the LED';
+            });
+        });
+
+        // LED OFF
+        document.getElementById('ledOff').addEventListener('click', () => {
+            fetch('http://127.0.0.1:3000/act', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ action: 'ledOff' }) // 'ledOff' 명령 전송
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').innerText = data.message; // 서버 응답 메시지 출력
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('status').innerText = 'Failed to turn off the LED';
+            });
+        });
+    </script>
+</body>
+</html>
