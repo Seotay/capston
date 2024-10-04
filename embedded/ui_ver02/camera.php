@@ -126,7 +126,7 @@
                     </div>
 
                     <style>
-                        /* card 자체를 가운데 정렬 */
+                        /* card 가운데 정렬 */
                         #cameraCard {
                             display: flex;
                             justify-content: center; /* 가로 중앙 정렬 */
