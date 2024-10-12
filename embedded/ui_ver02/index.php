@@ -96,8 +96,6 @@
                                 <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="register_crop.php">작물 등록</a>
-                                        <a class="nav-link" href="404.html">작물 수정</a>
-                                        <a class="nav-link" href="500.html">작물 삭제</a>
                                     </nav>
                                 </div>
                             </nav>
@@ -112,10 +110,6 @@
                         <a class="nav-link" href="tables.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             작물 통계
-                        </a>
-                        <a class="nav-link" href="tables.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            작물 주기 예측
                         </a>
                     </div>
                 </div>
@@ -369,57 +363,9 @@
                                 </div>                          
                         </div>
                     </div> 
-                    <div class="card mb-4">
-                    <h1>Sensor Data</h1>
-                    <table id="data-table" border="1" style="width: 100%; border-collapse: collapse;">
-                        <thead>
-                            <tr>
-                                <th>Serial No</th>
-                                <th>Temperature</th>
-                                <th>Humidity</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="data-container">
-                            <!-- Data rows will be added here -->
-                        </tbody>
-                    </table>
-                    <script>
-        // Fetch sensor data from the server
-        fetch('http://localhost:3000/sensors')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                const dataContainer = document.getElementById('data-container');
-                dataContainer.innerHTML = ''; // Clear any existing content
-                if (data && Array.isArray(data.data)) {
-                    data.data.forEach(sensor => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${sensor.serial_no}</td>
-                            <td>${sensor.temp}</td>
-                            <td>${sensor.humidity}</td>
-                            <td>${sensor.date}</td>
-                        `;
-                        dataContainer.appendChild(row);
-                    });
-                } else {
-                    dataContainer.innerHTML = '<tr><td colspan="4">No data found.</td></tr>';
-                }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-                const dataContainer = document.getElementById('data-container');
-                dataContainer.innerHTML = '<tr><td colspan="4">An error occurred while fetching data.</td></tr>';
-            });
-    </script>
                 </div>
                     
-                    <div class="card mb-4">
+                <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             데이터 관리
@@ -457,7 +403,7 @@
                                         ?>
                                     </tbody>
                                 </table>
-                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -465,11 +411,11 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">TaeHyeok&HyeonGyu &copy; Web Smart Farm</div>
+                        <div class="text-muted">TaeHyeok & HyeonGyu & JinGu &copy; Web Smart Farm</div>
                         <div>
                             <a href="#">tjxogur03@naver.com</a>
-                            
                             <a href="#"> &amp; uhyeongyu@naver.com</a>
+                            <a href="#"> &amp; kimjingu@naver.com</a>
                         </div>
                     </div>
                 </div>

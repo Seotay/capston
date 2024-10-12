@@ -40,61 +40,55 @@
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Smart Farm
-                            </a>
-                            <div class="sb-sidenav-menu-heading">마이페이지</div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                My Page
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        내 정보 관리
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.php">회원 정보 보기</a>
-                                            <a class="nav-link" href="register.pphp">회원 정보 수정</a>
-                                            <a class="nav-link" href="password.php">회원 탈퇴</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        작물 관리
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">작물 정보 보기</a>
-                                            <a class="nav-link" href="404.html">작물 수정</a>
-                                            <a class="nav-link" href="500.html">작물 삭제</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            
-                            <div class="sb-sidenav-menu-heading">메뉴</div>
-
-                            <a class="nav-link" href="charts.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                시각화 정보
-                            </a>
-                            <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                작물 통계
-                            </a>
-                            <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                작물 주기 예측
-                            </a>
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="index.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Smart Farm
+                        </a>
+                        <div class="sb-sidenav-menu-heading">마이페이지</div>
+                        
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            My Page
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    내 정보 관리
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="user_info.php">회원 정보 보기</a>
+                                        <a class="nav-link" href="user_update.php">회원 정보 수정</a>
+                                        <a class="nav-link" href="user_delete.php">회원 탈퇴</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    작물 관리
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="register_crop.php">작물 등록</a>
+                                    </nav>
+                                </div>
+                            </nav>
                         </div>
+                        
+                        <div class="sb-sidenav-menu-heading">메뉴</div>
+
+                        <a class="nav-link" href="charts.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            시각화 정보
+                        </a>
+                        <a class="nav-link" href="tables.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            작물 통계
+                        </a>
+                    </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
@@ -132,6 +126,136 @@
                             </div>
                             <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
                         </div>
+                        <div class="card mb-4">
+                            <!--<div class="card-body">
+                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                                .
+                            </div> -->
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                작물 길이 예측
+                            </div>
+                            <div class="card-body">
+                                <canvas id="predict_len_chart" width="100%" height="30"></canvas>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        fetch('http://localhost:5000/predict_len')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const predictedData = data.predicted_test_data.flat(); // Flatten the array
+                                                const labels = data.date; // Use the date array from the response
+
+                                                // Create the chart
+                                                const ctx = document.getElementById('predict_len_chart').getContext('2d');
+                                                const myChart = new Chart(ctx, {
+                                                    type: 'line',
+                                                    data: {
+                                                        labels: labels,
+                                                        datasets: [
+                                                            {
+                                                                label: 'Predicted leaf length(cm)',
+                                                                data: predictedData,
+                                                                borderColor: 'rgba(255, 99, 132, 1)',
+                                                                backgroundColor: 'rgba(255, 99, 132, 1)',
+                                                                borderWidth: 2,
+                                                                fill: false,
+                                                            },
+                                                        ],
+                                                    },
+                                                    options: {
+                                                        scales: {
+                                                            y: {
+                                                                beginAtZero: true,
+                                                                min: Math.min(...predictedData) - 5,  // Set minimum value based on predicted data
+                                                                max: Math.max(...predictedData) + 5,  // Set maximum value based on predicted data
+                                                            },
+                                                            x: {
+                                                                title: {
+                                                                    display: true,
+                                                                    text: 'Date', // Label for x-axis
+                                                                },
+                                                                ticks: {
+                                                                    autoSkip: true,
+                                                                    maxTicksLimit: 10, // Limit number of ticks to avoid clutter
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                });
+                                            })
+                                            .catch(error => console.error('Error fetching data:', error));
+                                    });
+                                </script>
+                            </div>
+                            <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+                        </div>
+
+                        <div class="card mb-4">
+                            <!--<div class="card-body">
+                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                                .
+                            </div> -->
+                            <div class="card-header">
+                                <i class="fas fa-chart-area me-1"></i>
+                                작물 잎 개수 예측
+                            </div>
+                            <div class="card-body">
+                                <canvas id="predict_num_chart" width="100%" height="30"></canvas>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        fetch('http://localhost:5000/predict_num')
+                                            .then(response => response.json())
+                                            .then(data => {
+                                                const predictedData = data.predicted_test_data.flat(); // Flatten the array
+                                                const labels = data.date; // Use the date array from the response
+
+                                                // Create the chart
+                                                const ctx = document.getElementById('predict_num_chart').getContext('2d');
+                                                const myChart = new Chart(ctx, {
+                                                    type: 'line',
+                                                    data: {
+                                                        labels: labels,
+                                                        datasets: [
+                                                            {
+                                                                label: 'Predicted leaf num',
+                                                                data: predictedData,
+                                                                borderColor: 'rgba(0, 128, 0, 1)',
+                                                                backgroundColor: 'rgba(0, 128, 0, 1)',
+                                                                borderWidth: 2,
+                                                                fill: false,
+                                                            },
+                                                        ],
+                                                    },
+                                                    options: {
+                                                        scales: {
+                                                            y: {
+                                                                beginAtZero: true,
+                                                                min: Math.min(...predictedData) - 5,  // Set minimum value based on predicted data
+                                                                max: Math.max(...predictedData) + 5,  // Set maximum value based on predicted data
+                                                            },
+                                                            x: {
+                                                                title: {
+                                                                    display: true,
+                                                                    text: 'Date', // Label for x-axis
+                                                                },
+                                                                ticks: {
+                                                                    autoSkip: true,
+                                                                    maxTicksLimit: 10, // Limit number of ticks to avoid clutter
+                                                                },
+                                                            },
+                                                        },
+                                                    },
+                                                });
+                                            })
+                                            .catch(error => console.error('Error fetching data:', error));
+                                    });
+                                </script>
+                            </div>
+                            <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+                        </div>
+                        
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="card mb-4">
@@ -164,11 +288,11 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">TaeHyeok&HyeonGyu &copy; Web Smart Farm</div>
+                            <div class="text-muted">TaeHyeok & HyeonGyu & JinGu &copy; Web Smart Farm</div>
                             <div>
                                 <a href="#">tjxogur03@naver.com</a>
-                                
                                 <a href="#"> &amp; uhyeongyu@naver.com</a>
+                                <a href="#"> &amp; kimjingu@naver.com</a>
                             </div>
                         </div>
                     </div>

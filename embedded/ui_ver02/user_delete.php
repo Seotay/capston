@@ -84,7 +84,7 @@ $conn->close();
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
-                    <div class="nav">
+                <div class="nav">
                         <div class="sb-sidenav-menu-heading">Core</div>
                         <a class="nav-link" href="index.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -117,8 +117,6 @@ $conn->close();
                                 <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="register_crop.php">작물 등록</a>
-                                        <a class="nav-link" href="404.html">작물 수정</a>
-                                        <a class="nav-link" href="500.html">작물 삭제</a>
                                     </nav>
                                 </div>
                             </nav>
@@ -133,10 +131,6 @@ $conn->close();
                         <a class="nav-link" href="tables.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             작물 통계
-                        </a>
-                        <a class="nav-link" href="tables.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            작물 주기 예측
                         </a>
                     </div>
                 </div>
@@ -198,11 +192,11 @@ $conn->close();
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">TaeHyeok&HyeonGyu &copy; Web Smart Farm</div>
+                        <div class="text-muted">TaeHyeok & HyeonGyu & JinGu &copy; Web Smart Farm</div>
                         <div>
                             <a href="#">tjxogur03@naver.com</a>
-                            
                             <a href="#"> &amp; uhyeongyu@naver.com</a>
+                            <a href="#"> &amp; kimjingu@naver.com</a>
                         </div>
                     </div>
                 </div>

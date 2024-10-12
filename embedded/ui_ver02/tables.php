@@ -1,3 +1,12 @@
+<?php
+include_once 'dbconfig.php';
+session_start(); // 세션 시작
+if (isset($_SESSION['id'])) {
+    $user_id = $_SESSION['id'];
+    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,61 +50,55 @@
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Smart Farm
-                            </a>
-                            <div class="sb-sidenav-menu-heading">마이페이지</div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                My Page
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        내 정보 관리
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.php">회원 정보 보기</a>
-                                            <a class="nav-link" href="register.php">회원 정보 수정</a>
-                                            <a class="nav-link" href="password.php">회원 탈퇴</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        작물 관리
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">작물 정보 보기</a>
-                                            <a class="nav-link" href="404.html">작물 수정</a>
-                                            <a class="nav-link" href="500.html">작물 삭제</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            
-                            <div class="sb-sidenav-menu-heading">메뉴</div>
-
-                            <a class="nav-link" href="charts.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                시각화 정보
-                            </a>
-                            <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                작물 통계
-                            </a>
-                            <a class="nav-link" href="tables.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                작물 주기 예측
-                            </a>
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="index.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Smart Farm
+                        </a>
+                        <div class="sb-sidenav-menu-heading">마이페이지</div>
+                        
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            My Page
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    내 정보 관리
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="user_info.php">회원 정보 보기</a>
+                                        <a class="nav-link" href="user_update.php">회원 정보 수정</a>
+                                        <a class="nav-link" href="user_delete.php">회원 탈퇴</a>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                    작물 관리
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="register_crop.php">작물 등록</a>
+                                    </nav>
+                                </div>
+                            </nav>
                         </div>
+                        
+                        <div class="sb-sidenav-menu-heading">메뉴</div>
+
+                        <a class="nav-link" href="charts.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            시각화 정보
+                        </a>
+                        <a class="nav-link" href="tables.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            작물 통계
+                        </a>
+                    </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
@@ -114,45 +117,39 @@
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
                         <div class="card mb-4">
-                            <!--<div class="card-body">
-                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                                .
-                            </div> -->
-                        </div>
-                        <div class="card mb-4">
+                        
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                데이터 관리
+                                 당일 기준 시간 별 평균 데이터 값
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>번호</th>
-                                            <th>날짜</th>
-                                            <th>온도</th>
-                                            <th>습도</th>
-                                            <th>조도</th>
-                                            <th>수분</th>
+                    
+                                            <th>시간</th>
+                                            <th>평균 온도</th>
+                                            <th>평균 습도</th>
+                                            <th>평균 조도</th>
+                                            <th>평균 수분</th>
                                         </tr>
                                     </thead>
                             
                                     
                                     <tbody>
                                         <?php
-                                        include_once 'data_table.php'; // table.php 파일 포함
+                                        include_once 'crop_stat.php'; // table.php 파일 포함
 
                                         if ($result->num_rows > 0) {
                                             // 결과가 있는 경우 데이터 출력
                                             while ($value = $result->fetch_assoc()) {
                                                 echo '<tr>';
-                                                    echo '<td>'.$value['serial_no'].'</td>';
-                                                    echo '<td>'.$value['date'].'</td>';
-                                                    echo '<td>'.$value['temp'].'</td>';
-                                                    echo '<td>'.$value['humidity'].'</td>';
-                                                    echo '<td>'.$value['illumination'].'</td>';
-                                                    echo '<td>'.$value['moisture'].'</td>';
+                                                    echo '<td>'.$value['hour'].'</td>';
+                                                    echo '<td>'.$value['avg_temperature'].'</td>';
+                                                    echo '<td>'.$value['avg_humidity'].'</td>';
+                                                    echo '<td>'.$value['avg_illumination'].'</td>';
+                                                    echo '<td>'.$value['avg_moisture'].'</td>';
+                                                   
                                                 echo '</tr>';
                                             }
                                         }
@@ -161,16 +158,16 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
+                        
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">TaeHyeok&HyeonGyu &copy; Web Smart Farm</div>
+                            <div class="text-muted">TaeHyeok & HyeonGyu & JinGu &copy; Web Smart Farm</div>
                             <div>
                                 <a href="#">tjxogur03@naver.com</a>
-                                
                                 <a href="#"> &amp; uhyeongyu@naver.com</a>
+                                <a href="#"> &amp; kimjingu@naver.com</a>
                             </div>
                         </div>
                     </div>

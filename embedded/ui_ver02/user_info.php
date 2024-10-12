@@ -56,6 +56,7 @@ if (isset($_SESSION['id'])) {
             </li>
         </ul>
     </nav>
+    
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -92,9 +93,7 @@ if (isset($_SESSION['id'])) {
                                 </a>
                                 <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="401.html">작물 정보 보기</a>
-                                        <a class="nav-link" href="404.html">작물 수정</a>
-                                        <a class="nav-link" href="500.html">작물 삭제</a>
+                                        <a class="nav-link" href="register_crop.php">작물 등록</a>
                                     </nav>
                                 </div>
                             </nav>
@@ -263,11 +262,11 @@ if (isset($_SESSION['id'])) {
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">TaeHyeok&HyeonGyu &copy; Web Smart Farm</div>
+                        <div class="text-muted">TaeHyeok & HyeonGyu & JinGu &copy; Web Smart Farm</div>
                         <div>
                             <a href="#">tjxogur03@naver.com</a>
-                            
                             <a href="#"> &amp; uhyeongyu@naver.com</a>
+                            <a href="#"> &amp; kimjingu@naver.com</a>
                         </div>
                     </div>
                 </div>
