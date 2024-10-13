@@ -231,7 +231,7 @@ if (isset($_SESSION['id'])) {
                                                     echo '<td>' . htmlspecialchars($value['crop_name']) . '</td>';
                                                     echo '<td>' . htmlspecialchars($value['variety']) . '</td>';
                                                     echo '<td>' . htmlspecialchars($value['planting_date']) . '</td>';
-                                                    echo '<td><img src="crop_image' . htmlspecialchars($value['crop_image']) . '" alt="작물 이미지" style="width:100px; height:auto;"></td>';
+                                                    echo '<td><img src="' . htmlspecialchars($value['crop_image']) . '" alt="작물 이미지" style="width:100px; height:auto;"></td>';
                                                     
                                                     echo '<td style="text-align: center; padding: 5px; width: 90px;"><form action="delete_crop.php" method="post" style="margin:0;">
                                                                 <input type="hidden" name="crop_num" value="' . htmlspecialchars($value['crop_num']) . '">

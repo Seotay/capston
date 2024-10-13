@@ -90,12 +90,12 @@
                         </a>
                     </div>
                     </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        <?php
-                            echo $_SESSION['name'];
-                        ?>
-                    </div>
+                        <div class="sb-sidenav-footer">
+                            <div class="small">Logged in as:</div>
+                            <?php
+                                echo $_SESSION['name'];
+                            ?>
+                        </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -261,10 +261,16 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        작물 생장 정보
+                                        최근 1 시간 이내 재배 환경 정보
                                     </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
-                                    <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+                                    <div class="card-body">
+                                        <canvas id="myBarChart" width="100%" height="50">
+                                            <?php
+                                                include_once 'crop_stat_visualization.php';
+                                            ?>
+                                        </canvas>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -302,8 +308,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        
         <!-- <script src="assets/demo/chart-area-demo.js"></script> -->
-        <script src="assets/demo/chart-bar-demo.js"></script>
+        <!-- <script src="assets/demo/chart-bar-demo.js"></script> -->
         <!-- <script src="assets/demo/chart-pie-demo.js"></script> -->
     </body>
 </html>
@@ -311,6 +318,70 @@
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
+
+
+// Bar Chart Example
+
+var ctx = document.getElementById("myBarChart");
+var myLineChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["평균온도", "평균습도", "평균수분", "평균조도"],
+    datasets: [{
+      label: "환경 데이터",
+      backgroundColor: [
+        "rgba(255, 99, 132, 1)",  // 온도: 빨간색
+        "rgba(54, 162, 235, 1)",  // 습도: 파란색
+        "rgba(75, 192, 192, 1)",  // 수분: 하늘색
+        "rgba(255, 206, 86, 1)"   // 조도: 노란색
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",  // 온도: 빨간색
+        "rgba(54, 162, 235, 1)",  // 습도: 파란색
+        "rgba(75, 192, 192, 1)",  // 수분: 하늘색
+        "rgba(255, 206, 86, 1)"   // 조도: 노란색
+      ],
+      data: [
+        <?php echo json_encode($avg_temperature); ?>, 
+        <?php echo json_encode($avg_humidity); ?>, 
+        <?php echo json_encode($avg_moisture); ?>,
+        <?php echo json_encode($avg_illumination); ?>
+      ],
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 6
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: 1000,
+          maxTicksLimit: 5
+        },
+        gridLines: {
+          display: true
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
+
+
+
+
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
@@ -350,8 +421,6 @@ var myPieChart = new Chart(ctx, {
     
   },
 });
-
-
 </script>
 
 <script>
@@ -429,3 +498,4 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
+

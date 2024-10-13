@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") { // GET으로 변경
         }
 
         // water 값이 pumpOn이면 act 테이블에 log기록
-        if ($water_value == 'pupmpOn') {
+        if ($water_value == 'pumpOn') {
             $water_status = 1;
         }
 

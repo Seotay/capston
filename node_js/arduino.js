@@ -50,7 +50,7 @@ function listenForSensorData() {
 }
 
 // function of Control Unit
-function controlPump(action, callback) {
+function controlUnit(action, callback) {
   console.log(action);
 
   if (action === 'pumpOn') {
@@ -96,5 +96,5 @@ function controlPump(action, callback) {
 // Export the function to listen for sensor data
 module.exports = {
   listenForSensorData,
-  controlPump
+  controlUnit
 };

@@ -13,8 +13,8 @@ app.post('/act', (req, res) => {
     const { action } = req.body;
     console.log('Received action:', action);
 
-    // Use the controlPump function from arduino.js
-    arduino.controlPump(action, (err, message) => {
+    // Use the controlUnit function from arduino.js
+    arduino.controlUnit(action, (err, message) => {
         if (err) {
             return res.status(500).json({ message: 'Failed to control pump' });
         }
