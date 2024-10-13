@@ -109,7 +109,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">실시간 영상 정보</h1>
+                    <h1 class="mt-4">작물 영상 모니터링</h1>
                     <ol class="breadcrumb mb-4">
                     
                     </ol>
