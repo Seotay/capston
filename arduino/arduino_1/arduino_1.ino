@@ -14,6 +14,10 @@ const int soilMoisturePin = A2; // 토양 수분 센서 핀 (아날로그 2번 �
 const int motorPinA = 4; // A-1A 핀 (검은선)
 const int motorPinB = 5; // A-1B 핀 (빨간선)
 
+// 팬 핀(디지털 22번)
+const int fanPinA = 2;
+
+
 const int ledPinR = 8;  // 빨간색 (디지털  8번 핀)
 const int ledPinG = 9;  // 초록색 (디지털  9번 핀)
 const int ledPinB = 10; // 파란색 (디지털 10번 핀)
@@ -22,6 +26,8 @@ void setup() {
   Serial.begin(9600);
   dht.begin();
 
+  pinMode(fanPinA, OUTPUT);
+  
   pinMode(motorPinA, OUTPUT);
   pinMode(motorPinB, OUTPUT);
 
@@ -59,10 +65,10 @@ void ControlUnit() {
       char command = Serial.read();
 
       if(command == '0') {
-        digitalWrite(motorPinA, HIGH);
+        digitalWrite(motorPinA, LOW);
       }
       else if(command == '1') {
-        digitalWrite(motorPinA, LOW);
+        digitalWrite(motorPinA, HIGH);
       }
       else if(command == '2') {
         digitalWrite(ledPinR, 255);
@@ -75,10 +81,10 @@ void ControlUnit() {
         digitalWrite(ledPinB, 0);
       }
       else if(command == '4') {
-
+        digitalWrite(fanPinA, LOW);
       }
       else if(command == '5') {
-
+        digitalWrite(fanPinA, HIGH);
       }
   }
 }

@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") { // GET으로 변경
         $camera_status = 0;
 
         // fan 값이 On이면 act 테이블에 log기록
-        if ($fan_value == 'On') {
+        if ($fan_value == 'fanOn') {
             $fan_status = 1;
         }
 

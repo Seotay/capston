@@ -140,7 +140,7 @@
                                 <canvas id="predict_len_chart" width="100%" height="30"></canvas>
                                 <script>
                                     document.addEventListener('DOMContentLoaded', function () {
-                                        fetch('http://localhost:5000/predict_len')
+                                        fetch('http://localhost:4000/predict_len')
                                             .then(response => response.json())
                                             .then(data => {
                                                 const predictedData = data.predicted_test_data.flat(); // Flatten the array
@@ -205,7 +205,7 @@
                                 <canvas id="predict_num_chart" width="100%" height="30"></canvas>
                                 <script>
                                     document.addEventListener('DOMContentLoaded', function () {
-                                        fetch('http://localhost:5000/predict_num')
+                                        fetch('http://localhost:4000/predict_num')
                                             .then(response => response.json())
                                             .then(data => {
                                                 const predictedData = data.predicted_test_data.flat(); // Flatten the array

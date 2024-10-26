@@ -134,9 +134,9 @@
                             <form action="act.php" method ="GET" onsubmit="document.reload()">
                                 <div class="card-body">온도 제어</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <input type='radio' name = "fan" value="On">On
-                                        <input type='radio' name = "fan" value="Off">Off
-                                        <input class = "styled-button-temp" type="submit" value="Control" >
+                                        <input type='radio' name = "fan" id="fanOn" value="fanOn">On
+                                        <input type='radio' name = "fan" id="fanOff" value="fanOff">Off
+                                        <input class = "styled-button-temp" id="controlFanBtn" type="submit" value="Control" >
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -199,6 +199,31 @@
                         </div>
                     </div>
                     <script>
+                        // Fan 제어 버튼 클릭
+                        document.getElementById('controlFanBtn').addEventListener('click', () => {
+                            const selectedAction = document.querySelector('input[name="fan"]:checked');
+                            if (selectedAction) {
+                                fetch('http://127.0.0.1:3000/act', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({ action: selectedAction.value }) // 선택된 값('pumpOn' 또는 'pumpOff') 전송
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    document.getElementById('status').innerText = data.message; // 서버 응답 메시지 출력
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    document.getElementById('status').innerText = 'Failed to control the fan';
+                                });
+                            } else {
+                                alert('Please select an option for the fan');
+                            }
+                        });
+
+
                         // Pump 제어 버튼 클릭
                         document.getElementById('controlPumpBtn').addEventListener('click', () => {
                             const selectedAction = document.querySelector('input[name="water"]:checked');

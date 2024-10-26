@@ -53,16 +53,16 @@ function listenForSensorData() {
 function controlUnit(action, callback) {
   console.log(action);
 
-  if (action === 'pumpOn') {
-      myPort.write('1', (err) => {  // '1'은 펌프 시작 명령
+  if (action === 'pumpOff') {
+      myPort.write('0', (err) => {  // '1'은 펌프 시작 명령
           if (err) {
               callback(err, null);
           } else {
               callback(null, 'Water pump started');  // 올바른 메시지
           }
       });
-  } else if (action === 'pumpOff') {
-      myPort.write('0', (err) => {  // '0'은 펌프 중지 명령
+  } else if (action === 'pumpOn') {
+      myPort.write('1', (err) => {  // '0'은 펌프 중지 명령
           if (err) {
               callback(err, null);
           } else {
@@ -85,6 +85,24 @@ function controlUnit(action, callback) {
               callback(err, null);
           } else {
               callback(null, 'LED turned off');  // 메시지 수정
+          }
+      });
+
+    } else if (action === 'fanOff') {
+        myPort.write('4', (err) => {  // '4'은 LED 끄기 명령
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, 'Fan turned off');  // 메시지 수정
+            }
+        });
+    
+  } else if (action === 'fanOn') {
+      myPort.write('5', (err) => {  // '4'은 LED 끄기 명령
+          if (err) {
+              callback(err, null);
+          } else {
+              callback(null, 'Fan turned on');  // 메시지 수정
           }
       });
 
